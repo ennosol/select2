@@ -1001,7 +1001,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             if (typeof(opts.id) !== "function") {
                 idKey = opts.id;
-                opts.id = function (e) { return e[idKey]; };
+                opts.id = function (e) { if (typeof e != 'undefined') return e[idKey]; return null; };
             }
 
             if ($.isArray(opts.element.data("select2Tags"))) {
